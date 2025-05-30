@@ -13,6 +13,7 @@ export interface Product {
   rating: number;
   category: string;
   brand: string;
+  cart: boolean,
   description: string;
 }
 
@@ -25,7 +26,7 @@ export const products = [
     rating: 3,
     category: "Bag",
     brand: "Brand A",
-    description: "A stylish orange bag for all your needs."
+    description: "A stylish orange bag for all your needs.",
   },
   {
     id: 2,
