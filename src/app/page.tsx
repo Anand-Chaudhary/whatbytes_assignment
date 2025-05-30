@@ -1,29 +1,6 @@
 import Sidebar from '@/components/sidebar';
-import bag from '@/assets/bag.avif';
-import sneaker from '@/assets/sneaker.png';
-import sunglasses from '@/assets/sunglasses.avif';
+import { products } from '../../utils/products';
 import ProductCard from '@/components/productCards';
-
-const products = [
-  {
-    id: 1,
-    image: bag,
-    title: "Orange Bag",
-    price: 20
-  },
-  {
-    id: 2,
-    image: sneaker,
-    title: "Sneaker",
-    price: 200
-  },
-  {
-    id: 3,
-    image: sunglasses,
-    title: "Sunglasses",
-    price: 30
-  },
-];
 
 export default function Home() {
   return (
@@ -38,6 +15,7 @@ export default function Home() {
                 image={product.image}
                 title={product.title}
                 price={product.price}
+                rating={product.rating}
               />
             ))}
           </div>

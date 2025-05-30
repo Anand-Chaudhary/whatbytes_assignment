@@ -3,7 +3,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className='bg-blue-700 w-full h-16 flex justify-between items-center px-8'>
+    <div className='bg-[#104488] w-full h-16 flex justify-between items-center px-8'>
       <div className="logo text-white">Logo</div>
 
       <div className="input mx-8 w-1/3 relative">
@@ -16,7 +16,7 @@ const Header = () => {
       </div>
 
       <div className="btns flex items-center gap-5">
-        <div className="relative flex items-center gap-1 bg-blue-700 px-2 py-1 rounded">
+        <div className="relative flex items-center gap-1 bg-gray-500 px-2 py-1 rounded">
           <ShoppingCart className="text-white" />
           <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
             0
