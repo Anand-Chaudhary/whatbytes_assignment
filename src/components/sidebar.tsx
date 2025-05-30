@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 const categories = ['All', 'Electronics', 'Clothing', 'Home'];
-const brands = ['All', 'BrandA', 'BrandB', 'BrandC']; // Sample brands
+const brands = ['All', 'Brand A', 'Brand B', 'Brand C'];
 
 interface SidebarProps {
   selectedCategory: string;

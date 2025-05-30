@@ -12,7 +12,7 @@ type ProductCardProps = {
 
 const ProductCard: React.FC<ProductCardProps> = ({ image, title, price, onAddToCart, rating }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 w-48 text-center">
+    <div className="bg-white rounded-lg shadow-md p-4 text-center">
       <Image
         src={image}
         alt={title}
