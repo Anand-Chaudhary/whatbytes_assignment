@@ -3,7 +3,18 @@ import sneaker from '@/assets/sneaker.png';
 import sunglasses from '@/assets/sunglasses.png';
 import phone from '@/assets/phone.png';
 import tshirt from '@/assets/tshirt.png'
+import { StaticImageData } from 'next/image';
 
+export interface Product {
+  id: number;
+  image: StaticImageData;
+  title: string;
+  price: number;
+  rating: number;
+  category: string;
+  brand: string;
+  description: string;
+}
 
 export const products = [
   {
@@ -13,6 +24,8 @@ export const products = [
     price: 20,
     rating: 3,
     category: "Bag",
+    brand: "Brand A",
+    description: "A stylish orange bag for all your needs."
   },
   {
     id: 2,
@@ -20,7 +33,9 @@ export const products = [
     title: "Sneaker",
     price: 200,
     rating:4,
-    category: "Clothing"
+    category: "Clothing",
+    brand: "Brand C",
+    description: "Comfortable and trendy sneakers.",
   },
   {
     id: 3,
@@ -28,7 +43,9 @@ export const products = [
     title: "Sunglasses",
     rating: 2,
     price: 30,
-    category: "Clothing"
+    category: "Clothing",
+    brand: "Brand B",
+    description: "Cool sunglasses for sunny days."
   },
   {
     id: 4,
@@ -36,7 +53,9 @@ export const products = [
     title: "Phone",
     rating: 5,
     price: 300,
-    category: "Electronics"
+    category: "Electronics",
+    brand: "Brand A",
+    description: "A modern smartphone with great features."
   },
   {
     id: 5,
@@ -44,6 +63,8 @@ export const products = [
     title: "Tshirt",
     rating: 4,
     price: 50,
-    category: "Clothing"
+    category: "Clothing",
+    brand: "Brand C",
+    description: "A comfortable cotton t-shirt."
   },
 ];

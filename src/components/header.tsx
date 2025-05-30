@@ -1,17 +1,26 @@
+"use client"
+
 import { ShoppingCart, Search } from 'lucide-react';
 import React from 'react';
 
-const Header = () => {
+interface HeaderProps {
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
   return (
     <div className='bg-[#104488] w-full h-16 flex justify-between items-center px-8'>
-      <div className="logo text-white">Logo</div>
+      <div className="logo text-white font-bold text-xl">Logo</div>
 
       <div className="input mx-8 w-1/3 relative">
         <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white w-4 h-4" />
         <input
           type="text"
-          placeholder='Search For Products....'
-          className="w-full border-2 outline-none border-white text-white placeholder:text-white px-2 py-1 rounded pl-8"
+          placeholder='Search For Products...'
+          className="w-full border-2 outline-none border-white text-white placeholder:text-white px-2 py-1 rounded pl-8 bg-transparent"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
 
