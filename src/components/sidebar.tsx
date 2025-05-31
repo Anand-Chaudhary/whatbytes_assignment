@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 const categories = ['All', 'Electronics', 'Clothing', 'Home'];
 const brands = ['All', 'Brand A', 'Brand B', 'Brand C'];

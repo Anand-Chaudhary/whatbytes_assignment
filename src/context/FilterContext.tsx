@@ -24,7 +24,7 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredProducts = useMemo(() => {
-    let filtered: Product[] = products;
+    let filtered: Product[] = products.map(product => ({ ...product, cart: false }));
 
     // Category filtering
     if (selectedCategory !== 'All') {

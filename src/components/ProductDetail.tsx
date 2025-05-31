@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
-import { Product } from '@/utils/products';
+import { Product } from '../../utils/products';
 
 interface ProductDetailProps {
   product: Product;
