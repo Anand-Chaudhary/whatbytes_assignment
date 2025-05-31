@@ -2,6 +2,8 @@
 
 This project was created as part of the assignment round for WhatBytes. It demonstrates the implementation of various features and requirements specified in the assignment.
 
+## Project Demo: [Assignment Live](https://whatbytes-assignment-mu.vercel.app/)
+
 ## Project Overview
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
