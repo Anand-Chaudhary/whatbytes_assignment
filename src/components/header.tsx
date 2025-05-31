@@ -2,6 +2,8 @@
 
 import { ShoppingCart, Search } from 'lucide-react';
 import React from 'react';
+import { useCart } from '@/context/CartContext';
+import Link from 'next/link';
 
 interface HeaderProps {
   searchQuery: string;
@@ -9,6 +11,9 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
+  const { getCartCount } = useCart();
+  const cartCount = getCartCount();
+
   return (
     <div className='bg-[#104488] w-full h-16 flex justify-between items-center px-8'>
       <div className="logo text-white font-bold text-xl">Logo</div>
@@ -25,13 +30,13 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
       </div>
 
       <div className="btns flex items-center gap-5">
-        <div className="relative flex items-center gap-1 bg-gray-500 px-2 py-1 rounded">
+        <Link href="/cart" className="relative flex items-center gap-1 bg-gray-500 px-2 py-1 rounded hover:bg-gray-600 transition">
           <ShoppingCart className="text-white" />
           <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
-            0
+            {cartCount}
           </span>
           <span className="text-white">Cart</span>
-        </div>
+        </Link>
         <div className="profile bg-white rounded-full w-8 h-8"></div>
       </div>
     </div>

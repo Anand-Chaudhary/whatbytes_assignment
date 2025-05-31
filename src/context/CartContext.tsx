@@ -1,19 +1,20 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Product } from '@/utils/products';
 
 interface CartContextType {
-  cartItems: { [key: number]: boolean };
+  cartItems: { [key: number]: number };
   addToCart: (productId: number) => void;
   removeFromCart: (productId: number) => void;
   isInCart: (productId: number) => boolean;
+  getCartCount: () => number;
+  updateQuantity: (productId: number, quantity: number) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [cartItems, setCartItems] = useState<{ [key: number]: boolean }>({});
+  const [cartItems, setCartItems] = useState<{ [key: number]: number }>({});
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -31,7 +32,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const addToCart = (productId: number) => {
     setCartItems(prev => ({
       ...prev,
-      [productId]: true
+      [productId]: (prev[productId] || 0) + 1
     }));
   };
 
@@ -43,12 +44,27 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
   };
 
+  const updateQuantity = (productId: number, quantity: number) => {
+    if (quantity <= 0) {
+      removeFromCart(productId);
+      return;
+    }
+    setCartItems(prev => ({
+      ...prev,
+      [productId]: quantity
+    }));
+  };
+
   const isInCart = (productId: number) => {
-    return cartItems[productId] || false;
+    return cartItems[productId] > 0;
+  };
+
+  const getCartCount = () => {
+    return Object.values(cartItems).reduce((sum, quantity) => sum + quantity, 0);
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, isInCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, isInCart, getCartCount, updateQuantity }}>
       {children}
     </CartContext.Provider>
   );

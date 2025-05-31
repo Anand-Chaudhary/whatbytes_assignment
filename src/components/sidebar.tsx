@@ -40,8 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   };
 
   return (
-    <div className="p-4 space-y-4 w-64">
-      {/* Dark Box Version */}
+    <div className="h-full bg-white md:bg-transparent w-64 md:w-auto p-4 md:pl-4 lg:pl-6 md:mt-4 lg:mt-6">
       <div className="bg-blue-700 text-white p-4 rounded-lg space-y-4">
         <h2 className="text-lg font-bold">Filters</h2>
 
@@ -97,9 +96,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
       </div>
-
-      {/* Light Box Version */}
-      <div className="bg-white shadow p-4 rounded-lg space-y-4">
+      <div className="bg-gray-100 mt-4 text-black p-4 rounded-lg space-y-4">
         <h2 className="text-lg font-bold">Filters</h2>
 
         <div>
@@ -112,7 +109,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   value={cat}
                   checked={selectedCategory === cat}
                   onChange={() => setSelectedCategory(cat)}
-                  className="accent-blue-600"
+                  className="accent-white"
                 />
                 {cat}
               </label>
@@ -130,7 +127,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   value={brand}
                   checked={selectedBrands.includes(brand)}
                   onChange={() => handleBrandChange(brand)}
-                  className="accent-blue-600"
+                  className="accent-white"
                 />
                 {brand}
               </label>
@@ -140,12 +137,18 @@ const Sidebar: React.FC<SidebarProps> = ({
 
         <div>
           <h3 className="font-semibold mt-4">Price</h3>
-          <input
-            type="number"
-            value={priceRange[1]}
-            onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
-            className="w-full px-2 py-1 border rounded mt-1"
-          />
+          <div className="flex items-center justify-between">
+            <span>0</span>
+            <input
+              type="range"
+              min="0"
+              max="1000"
+              value={priceRange[1]}
+              onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+              className="w-full mx-2"
+            />
+            <span>1000</span>
+          </div>
         </div>
       </div>
     </div>
